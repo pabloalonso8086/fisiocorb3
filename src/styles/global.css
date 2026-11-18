@@ -87,7 +87,7 @@
 .faq details[open] .faq-body { animation: faqIn .35s ease both; }
 
 /* Botons: petita elevació, sense estridències */
-.btn { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.btn { border-radius: 6px; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(20,20,20,.18); }
 .btn .arrow { transition: transform .2s ease; }
 .btn:hover .arrow, .link-arrow:hover .arrow, .group:hover .link-arrow .arrow { transform: translateX(4px); }

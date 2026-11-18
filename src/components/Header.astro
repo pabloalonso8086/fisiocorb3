@@ -35,7 +35,7 @@ const langs = [
     <!-- Escriptori -->
     <nav aria-label={t("comu.nav.principal")} class="hidden items-center gap-8 text-base font-bold xl:flex 2xl:gap-10">
       {links.map((l) => (
-        <a href={l.href} class:list={["relative py-2.5 no-underline after:absolute after:inset-x-0 after:-bottom-0.5 after:h-1 after:origin-left after:bg-groc after:transition-transform after:duration-300", l.key === actiu ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"]} aria-current={l.key === actiu ? "page" : undefined}>{l.label}</a>
+        <a href={l.href} class:list={["relative flex items-center justify-center py-2.5 text-center no-underline after:absolute after:inset-x-0 after:-bottom-0.5 after:h-1 after:origin-left after:bg-groc after:transition-transform after:duration-300", l.key === actiu ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"]} aria-current={l.key === actiu ? "page" : undefined}>{l.label}</a>
       ))}
       <div class="flex items-center gap-1 text-sm" aria-label={t("comu.idioma.etiqueta")} role="group">
         {langs.map((x, i) => (
@@ -45,12 +45,12 @@ const langs = [
           </>
         ))}
       </div>
-      <a href={negoci.whatsapp} target="_blank" rel="noopener" class="btn inline-flex min-h-12 items-center gap-3 bg-btn px-6 py-4 !text-white no-underline hover:!text-white">{t("comu.nav.demanaCita")} <Arrow /></a>
+      <a href={negoci.whatsapp} target="_blank" rel="noopener" class="btn inline-flex min-h-12 items-center justify-center gap-3 bg-btn px-6 text-center py-4 !text-white no-underline hover:!text-white">{t("comu.nav.demanaCita")} <Arrow /></a>
     </nav>
 
     <!-- Mòbil i tauleta -->
     <div class="flex items-center gap-2 xl:hidden">
-      <button id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-mobil" class="inline-flex min-h-12 items-center gap-2.5 border-2 border-ink bg-white px-4 text-lg font-bold">
+      <button id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-mobil" class="inline-flex min-h-12 items-center gap-2.5 rounded-md border-2 border-ink bg-white px-4 text-lg font-bold">
         <svg class="menu-ic-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
         <svg class="menu-ic-close hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
         <span class="menu-lb-open">{t("comu.nav.menu")}</span><span class="menu-lb-close hidden">{t("comu.nav.tancar")}</span>
@@ -72,7 +72,7 @@ const langs = [
       <a href={negoci.whatsapp} target="_blank" rel="noopener" class="btn flex min-h-14 items-center justify-center gap-3 bg-btn text-lg font-bold !text-white no-underline">{t("comu.nav.demanaCita")} <Arrow /></a>
       <div class="flex gap-3" role="group" aria-label={t("comu.idioma.etiqueta")}>
         {langs.map((x) => (
-          <a href={x.href} hreflang={x.code} lang={x.code} data-astro-reload class:list={["flex min-h-12 flex-1 items-center justify-center border-2 text-lg font-bold no-underline", x.code === lang ? "border-ink bg-ink !text-white" : "border-line bg-white"]} aria-current={x.code === lang ? "true" : undefined}>{x.label}</a>
+          <a href={x.href} hreflang={x.code} lang={x.code} data-astro-reload class:list={["flex min-h-12 flex-1 items-center justify-center rounded-md border-2 text-lg font-bold no-underline", x.code === lang ? "border-ink bg-ink !text-white" : "border-line bg-white"]} aria-current={x.code === lang ? "true" : undefined}>{x.label}</a>
         ))}
       </div>
     </div>
