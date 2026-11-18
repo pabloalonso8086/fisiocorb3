@@ -15,6 +15,8 @@ Guía para editar contenidos (para el cliente): **[LLEGEIX-ME.md](LLEGEIX-ME.md)
 | `src/content/blog/{ca,es}/*.md` | Artículos (URL = nombre del fichero, igual que en WordPress). |
 | `src/content/legal/{ca,es}/*.md` | Textos legales. |
 | `public/_redirects` | 301 de la web antigua (formato Cloudflare). |
+| `public/_headers` | Cabeceras HTTP: seguridad y caché (formato Cloudflare). |
+| `wrangler.jsonc` | Configuración del Worker (solo assets estáticos de `dist/`). |
 | `scripts/check-redirects.mjs` | Se ejecuta tras `astro build`: cada URL de `scripts/urls-web-antiga.txt` debe ser página o 301 válido. |
 
 Catalán sin prefijo (por defecto, `x-default`), castellano bajo `/es/`. hreflang en todas las páginas; los artículos sin traducción solo declaran su propio idioma.
@@ -34,5 +36,19 @@ pnpm build        # astro build + comprobación de redirecciones
 pnpm preview      # wrangler dev sobre dist/
 pnpm run deploy   # wrangler deploy
 ```
+
+## Despliegue en Cloudflare
+
+**Desde local:** `pnpm wrangler login` (una vez) y `pnpm run deploy`.
+
+**Automático desde Git (Workers Builds):** en el panel de Cloudflare → Workers & Pages → Create → Import a repository, y configura:
+
+| Campo | Valor |
+|---|---|
+| Build command | `pnpm build` |
+| Deploy command | `pnpm wrangler deploy` |
+| Root directory | `/` |
+
+La versión de Node la fija `.node-version`. Después, en el Worker → Settings → Domains & Routes, añade `fisiocorb.cat` y `www.fisiocorb.cat` (el dominio debe estar en Cloudflare).
 
 Efectos: todos respetan `prefers-reduced-motion`. Sin cookies ni scripts de terceros.
